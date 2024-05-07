@@ -27,7 +27,7 @@ export const AuthForm = ({ providers }: { providers: Record<LiteralUnion<BuiltIn
         // Do something with the form values.
         // ✅ This will be type-safe and validated.
         console.log(values)
-        await signIn("email", values)
+        await signIn("email", { ...values, callbackUrl: "/onboarding" },)
     }
     return (
         <Form {...form}>

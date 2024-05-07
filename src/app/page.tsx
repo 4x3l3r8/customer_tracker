@@ -16,7 +16,7 @@ export default async function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             <div className="flex-shrink-0 flex items-center">
-              <h1 className="text-2xl font-bold text-gray-800">Customer Manager</h1>
+              <h1 className="text-2xl font-bold text-gray-800">CusTrak</h1>
             </div>
             <UserCard />
           </div>
@@ -71,21 +71,3 @@ export default async function Home() {
   );
 }
 
-async function CrudShowcase() {
-  const session = await getServerAuthSession();
-  if (!session?.user) return null;
-
-  const secretMessage = await api.post.getSecretMessage();
-
-  return (
-    <div className="w-full max-w-xs">
-      {secretMessage ? (
-        <p className="truncate">Your secret message: {secretMessage}</p>
-      ) : (
-        <p>You have no posts yet.</p>
-      )}
-
-      <CreatePost />
-    </div>
-  );
-}
