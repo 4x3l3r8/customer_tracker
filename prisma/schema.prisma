@@ -72,6 +72,6 @@ model Customer {
     address   String   @db.Text
     lng       String
     lat       String
-    User      User?    @relation(fields: [userId], references: [id])
-    userId    String?
+    User      User    @relation(fields: [userId], references: [id])
+    userId    String
 }

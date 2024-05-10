@@ -1,5 +1,4 @@
-import { html, text } from "@/app/_components/EmailTemplates";
-import { env } from "@/env";
+import { html, text } from "@/components/EmailTemplates";
 import { type SendVerificationRequestParams } from "next-auth/providers/email";
 import { createTransport } from "nodemailer";
 
