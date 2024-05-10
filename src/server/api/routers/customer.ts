@@ -10,6 +10,13 @@ export const customerRouter = createTRPCRouter({
     });
   }),
 
+  getAll: protectedProcedure.query(({ ctx }) => {
+    return ctx.db.customer.findMany({
+      where: { userId: ctx.session.user.id },
+      orderBy: { createdAt: "desc" },
+    });
+  }),
+
   create: protectedProcedure
     .input(
       z.object({

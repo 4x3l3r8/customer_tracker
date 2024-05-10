@@ -21,7 +21,7 @@ const Dashboard = async () => {
                     </CardHeader>
                     <CardContent className='flex flex-col'>
                         {latestCustomers.length >= 1 ? latestCustomers.map((cus) => {
-                            return <div key={cus.id}>{cus.name} - {cus.email}</div>
+                            return <div key={cus.id} className='flex flex-col gap-3'><div key={cus.id} className='mt-1'>{cus.name} - {cus.email}</div><Separator /></div>
                         }) : <>No customer has been created!</>}
                     </CardContent>
                     <CardFooter className='mt-auto'>

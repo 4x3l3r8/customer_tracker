@@ -1,0 +1,1 @@
+export type TableDataPrimitiveObject = object & { id: number | string };

@@ -1,9 +1,9 @@
-import { Button } from '@/components/ui/button'
-import React from 'react'
+import { api } from '@/trpc/server'
 import { AddNewCustomer } from './AddNew'
 import { CustomersTable } from './CustomersTable'
 
 const CustomersPage = async () => {
+    const customers = await api.customer.getAll()
     return (
         <div className='py-10'>
             <div className="flex items-center">
@@ -11,7 +11,7 @@ const CustomersPage = async () => {
                 <AddNewCustomer />
             </div>
 
-            <CustomersTable />
+            <CustomersTable customers={customers} />
         </div>
     )
 }

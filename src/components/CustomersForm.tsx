@@ -18,6 +18,7 @@ import { api } from "@/trpc/react"
 import { toast } from "sonner"
 import { DialogClose, DialogFooter } from "./ui/dialog"
 import { Spinner } from "./common"
+import { useRouter } from "next/router"
 
 const FormSchema = z.object({
     name: z.string().min(2, {
@@ -29,9 +30,11 @@ const FormSchema = z.object({
 })
 
 export const CustomersForm = () => {
+    // const router = useRouter()
     const addCustomer = api.customer.create.useMutation({
         onSuccess: () => {
             toast.success("Your new customer has been created")
+            location.reload()
         },
         onError: () => {
             toast.error("Failed to create customer!")
