@@ -3,7 +3,7 @@ import React from 'react'
 
 const Page = () => {
     return (
-        <Card className="w-1/4">
+        <Card className="md:w-1/4">
             <CardHeader>
                 <CardTitle className="text-2xl text-center">CusTrak</CardTitle>
                 <CardDescription className='text-center'>

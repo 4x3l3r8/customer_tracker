@@ -9,12 +9,16 @@ import {
     DialogTitle,
     DialogTrigger
 } from "@/components/ui/dialog"
+import { PlusIcon } from "lucide-react"
 
 export function AddNewCustomer() {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <Button className="ml-auto">Add New Customer</Button>
+                <Button className="w-fit ml-auto">
+                    <span className="hidden md:block">Add New Customer</span>
+                    <span className="block md:hidden"><PlusIcon /></span>
+                </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-md">
                 <DialogHeader>

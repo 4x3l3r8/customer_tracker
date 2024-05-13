@@ -155,7 +155,7 @@ export const TableComponent = <T extends TableDataPrimitiveObject>({
     return (
         <Card>
             <CardContent className='p-3 overflow-hidden'>
-                <div className='w-full items-center px-6 lg:px-8'>
+                <div className='w-full items-center px-2 md:px-6 lg:px-8'>
                     <div className='whitespace-nowrap bg-white flex mb-3 items-center'>
                         {title && (
                             <h3 className="text-lg font-medium">{title}</h3>
@@ -348,8 +348,8 @@ export const TableComponent = <T extends TableDataPrimitiveObject>({
                         </Table>
                     </div>
                     {!isLoading && table.getPageCount() > 0 && (
-                        <div className='flex py-3 gap-2 md:gap-5 px-3 items-center justify-end'>
-                            <span className='flex text-sm flex-col md:flex-row items-start md:items-center gap-1'>
+                        <div className='flex flex-wrap md:flex-nowrap py-3 gap-2 md:gap-5 px-3 items-center justify-end'>
+                            <span className='flex text-sm flex-row items-start md:items-center gap-1'>
                                 <div>Showing</div>
                                 {startIndex + 1} - {endIndex} of {table.getPageCount()}{' '}
                                 {table.getPageCount() > 1 ? 'pages' : 'page'}
@@ -406,7 +406,7 @@ export const TableComponent = <T extends TableDataPrimitiveObject>({
                                     table.setPageSize(Number(e));
                                 }}
                             >
-                                <SelectTrigger className='w-1/4'>
+                                <SelectTrigger className='w-full md:w-1/4'>
                                     <SelectValue />
                                 </SelectTrigger>
                                 <SelectContent>

@@ -13,7 +13,7 @@ const inter = Inter({
 export const metadata = {
   title: "CusTrak",
   description: "Manage your customers, track their locations.",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  icons: [{ rel: "icon", url: "/logo-small.ico" }],
 };
 
 export default function RootLayout({
