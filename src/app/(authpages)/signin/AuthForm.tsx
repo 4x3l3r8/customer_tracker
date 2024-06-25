@@ -3,9 +3,11 @@
 import { Button } from '@/components/ui/button'
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
+import { Separator } from '@/components/ui/separator'
 import { zodResolver } from "@hookform/resolvers/zod"
 import { type BuiltInProviderType } from 'next-auth/providers/index'
 import { signIn, type ClientSafeProvider, type LiteralUnion } from 'next-auth/react'
+import { Fragment } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from "zod"
 
@@ -50,17 +52,20 @@ export const AuthForm = ({ providers }: { providers: Record<LiteralUnion<BuiltIn
                 />
                 <div className='flex flex-col gap-2'>
                     {providers &&
-                        Object.values(providers).map((provider) => (
-                            <Button
-                                key={provider.name}
-                                // className="rounded-"
-                                type={provider.name === "Email" ? "submit" : "button"}
-                                onClick={async () => {
-                                    if (provider.name !== "Email") { await signIn(provider.id) }
-                                }}
-                            >
-                                Continue with {provider.name}
-                            </Button>
+                        Object.values(providers).map((provider, i) => (
+                            <Fragment key={provider.name}>
+                                <Button
+                                    key={provider.name}
+                                    // className="rounded-"
+                                    type={provider.name === "Email" ? "submit" : "button"}
+                                    onClick={async () => {
+                                        if (provider.name !== "Email") { await signIn(provider.id) }
+                                    }}
+                                >
+                                    Continue with {provider.name}
+                                </Button>
+                                <Separator className={`${provider.name !== "Email" ? "hidden" : "block"}`} />
+                            </Fragment>
                         ))}
                 </div>
             </form>
