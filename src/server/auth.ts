@@ -56,6 +56,7 @@ export const authOptions: NextAuthOptions = {
   providers: [
     EmailProvider({
       server: {
+        service:"Gmail",
         host: env.SMTP_HOST,
         port: Number(env.SMTP_PORT),
         auth: {
